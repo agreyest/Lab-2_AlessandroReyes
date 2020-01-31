@@ -11,6 +11,18 @@ public class Lab2_AlessandroReyes {
     public static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) {
+        personajes.add(new Personaje(1, "Alessandro", 1, 2, 180, 20, "El fenomeno", 1,
+                                        50 + random.nextInt(60), 97, 40, 5+random.nextInt(15)));
+        
+        personajes.add(new Personaje(1, "Roberto", 2, 2, 180, 20, "El gordo", 2,
+                                        80 + random.nextInt(100), 93, 65, 15+random.nextInt(30)));
+        
+        personajes.add(new Personaje(1, "Giovanni", 3, 2, 180, 20, "El magico", 3,
+                                        50 + random.nextInt(70), 101, 20, 5+random.nextInt(10)));
+        
+        personajes.add(new Personaje(1, "Alvaro", 4, 2, 180, 20, "El artista", 4,
+                                        40 + random.nextInt(75), 80, 50, 15+random.nextInt(25)));
+        
         char resp = 's';
         while (resp == 's') {
             System.out.println("Bienvenido a Codest"
@@ -39,8 +51,10 @@ public class Lab2_AlessandroReyes {
                                 + "\n4) Picaro");
                         tipo = leer.nextInt();
                     }
-                    System.out.println("Ingrese el nombre de su personaje: ");
+                    System.out.print("Ingrese el nombre de su personaje: ");
+                    leer.nextLine();
                     String nombre = leer.nextLine();
+                    
                     boolean ver = false;
                     for (int i = 0; i < personajes.size(); i++) {
                         if (personajes.get(i).getNombre().equals(nombre)) {
@@ -82,6 +96,7 @@ public class Lab2_AlessandroReyes {
                     System.out.println("Ingrese la edad de su personaje: ");
                     int edad = leer.nextInt();
                     System.out.println("Ingrese una leve descripcion de su personaje ");
+                    leer.nextLine();
                     String desc = leer.nextLine();
 
                     System.out.println("Que nacionalidad es su jugador (presione un numero): "
@@ -289,18 +304,17 @@ public class Lab2_AlessandroReyes {
                     break;
                 case 3://vér
                     System.out.println("Ingrese el nombre del personaje que desea ver los atributos: ");
+                    leer.nextLine();
                     String name = leer.nextLine();
                     int t = 0,
-                     n = 0,
-                     r = 0;
+                    n = 0,
+                    r = 0;
                     for (int i = 0; i < personajes.size(); i++) {
+                        System.out.println("for: "+personajes.get(i).getNombre());
                         if (personajes.get(i).getNombre().equals(name)) {
                             t = personajes.get(i).getTipo();
                             n = personajes.get(i).getNacionalidad();
                             r = personajes.get(i).getRaza();
-                            break;
-                        } else {
-                            System.out.println("Ese personaje no existe o nombre incorrecto.");
                             break;
                         }
                     }
@@ -446,7 +460,67 @@ public class Lab2_AlessandroReyes {
                     }
                     break;
                 case 5://combate
-
+                    System.out.println("Personaje del juego: ");
+                    for (int i = 0; i < personajes.size(); i++) {
+                        System.out.println(i + ") "+personajes.get(i).getNombre());
+                    }
+                    System.out.println("Ingrese el numero del personaje que quiere usar: ");
+                    int p1= leer.nextInt();
+                    while(p1<0 || p1 > personajes.size()){
+                        System.out.println("Numero ingresado incorrecto, ingreselo de nuevo: ");
+                        p1= leer.nextInt();
+                    }
+                    Personaje p = personajes.get(p1);
+                    System.out.println("Ingrese el numero del persona del cpu: ");
+                    int cpu = leer.nextInt();
+                    while(cpu<0 || cpu > personajes.size() && p1 == cpu){
+                        System.out.println("Numero ingresado incorrecto o ya fue elegido, ingreselo de nuevo: ");
+                        cpu= leer.nextInt();
+                    }
+                    Personaje c= personajes.get(cpu);
+                   
+                    System.out.println("Bienvenido, que empiece el combate.");
+                    int golpe;
+                    while(c.getHp() >0 && p.getHp()>0){
+                        System.out.println("Turno del jugador");
+                        golpe =  1+random.nextInt(100);
+                        if(golpe > c.getAc()){
+                            if(golpe > p.getCs()){
+                                golpe = p.getDg()*2;
+                                c.setHp(c.getHp()-golpe);
+                                System.out.println("-"+golpe);
+                            }else{
+                                golpe = p.getDg();
+                                c.setHp(c.getHp()-golpe);
+                                System.out.println("-"+golpe);
+                            }
+                                
+                        }else
+                            System.out.println("Su ataque fallo");
+                        
+                        System.out.println("");
+                        System.out.println("Turno de la maquina.");
+                        p.setAc(p.getAc()+15);
+                        golpe =  1+random.nextInt(100);
+                        if(golpe > c.getAc()){
+                            if(golpe > p.getCs()){
+                                golpe = p.getDg()*2;
+                                c.setHp(c.getHp()-golpe);
+                                System.out.println("-"+golpe);
+                            }else{
+                                golpe = p.getDg();
+                                c.setHp(c.getHp()-golpe);
+                                System.out.println("-"+golpe);
+                            }
+                        }else
+                            System.out.println("La cpu fallo el ataque");
+                        p.setAc(p.getAc()-15);
+                    }
+                    if(p.getHp()<0){
+                        System.out.println("La maquina a ganado, buen intento");
+                    }else if(c.getHp()<0){
+                        System.out.println("Felicidades, ha ganado la batalla.");
+                    }
                     break;
                 case 6://salir
                     resp = 'n';

@@ -145,7 +145,7 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "nombre= " + nombre + "\n estatura= " + estatura + "\n peso= " + peso + "\n edad= " + edad + 
+        return " nombre= " + nombre + "\n estatura= " + estatura + "\n peso= " + peso + "\n edad= " + edad + 
                 "\n descripcion=" + descripcion + "\n hp= " + hp + "\n cs= " + cs + "\n ac= " + ac + "\n dg= " + dg;
     }
 
