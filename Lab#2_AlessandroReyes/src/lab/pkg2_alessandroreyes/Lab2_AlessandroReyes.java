@@ -23,7 +23,11 @@ public class Lab2_AlessandroReyes {
             int op = leer.nextInt();
             switch(op){
                 case 1:
-                    
+                    System.out.println("Que tipo desea jugar (presione un numero): "
+                            + "\n1) Clerigo"
+                            + "\n2) Barbaro"
+                            + "\n3) Mago"
+                            + "\n4) Picaro");
                     break;
                 case 2:
                     
