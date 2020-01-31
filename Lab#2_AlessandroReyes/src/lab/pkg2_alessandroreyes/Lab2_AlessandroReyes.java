@@ -12,19 +12,20 @@ public class Lab2_AlessandroReyes {
 
     public static void main(String[] args) {
         personajes.add(new Personaje(1, "Alessandro", 1, 2, 180, 20, "El fenomeno", 1,
-                                        50 + random.nextInt(60), 97, 40, 5+random.nextInt(15)));
+                                        (50+random.nextInt(11)), 97, 40, 5+random.nextInt(11)));
         
         personajes.add(new Personaje(1, "Roberto", 2, 2, 180, 20, "El gordo", 2,
-                                        80 + random.nextInt(100), 93, 65, 15+random.nextInt(30)));
+                                        (80+random.nextInt(21)), 93, 65, 15+random.nextInt(16)));
         
         personajes.add(new Personaje(1, "Giovanni", 3, 2, 180, 20, "El magico", 3,
-                                        50 + random.nextInt(70), 101, 20, 5+random.nextInt(10)));
+                                        (50+random.nextInt(21)), 101, 20, 5+random.nextInt(6)));
         
         personajes.add(new Personaje(1, "Alvaro", 4, 2, 180, 20, "El artista", 4,
-                                        40 + random.nextInt(75), 80, 50, 15+random.nextInt(25)));
+                                        (40+random.nextInt(36)), 80, 50, 15+random.nextInt(11)));
         
         char resp = 's';
         while (resp == 's') {
+            System.out.println("");
             System.out.println("Bienvenido a Codest"
                     + "\n1) Creacion de personajes"
                     + "\n2) Modificar personajes"
@@ -570,14 +571,19 @@ public class Lab2_AlessandroReyes {
                     int golpe;
                     
                     while(c.getHp() >0 && p.getHp()>0){
+                        System.out.println("Vida del personaje del jugador: "+p.getHp());
+                        System.out.println("Vida del personaje de la maquina: "+c.getHp());
                         System.out.println("");
                         System.out.println("Que va a hacer: "
                                 + "\n1) atacar"
                                 + "\n2) defender");
                         int o = leer.nextInt();
                         System.out.println("Turno del jugador");
+                        
                         if (o == 1) {
                             golpe = 1 + random.nextInt(100);
+                            System.out.println("random: " + golpe);
+                            System.out.println("AC de la maquina: " + c.getAc());
                             if (golpe > c.getAc()) {
                                 if (golpe > p.getCs()) {
                                     golpe = p.getDg() * 2;
@@ -600,10 +606,12 @@ public class Lab2_AlessandroReyes {
                         
                         System.out.println("");
                         System.out.println("Turno de la maquina.");
-                        golpe =  1+random.nextInt(100);
-                        if(golpe > c.getAc()){
-                            if(golpe > p.getCs()){
-                                golpe = p.getDg()*2;
+                        golpe = 1 + random.nextInt(100);
+                        System.out.println("random: " + golpe);
+                        System.out.println("AC del jugador: " + p.getAc());
+                        if (golpe > c.getAc()) {
+                            if (golpe > p.getCs()) {
+                                golpe = p.getDg() *2;
                                 c.setHp(c.getHp()-golpe);
                                 System.out.println("-"+golpe);
                             }else{
@@ -621,6 +629,7 @@ public class Lab2_AlessandroReyes {
                     }else if(c.getHp()<0){
                         System.out.println("Felicidades, ha ganado la batalla.");
                     }
+                    System.out.println("");
                     break;
                 case 6://salir
                     resp = 'n';
