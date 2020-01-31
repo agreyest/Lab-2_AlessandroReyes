@@ -568,26 +568,38 @@ public class Lab2_AlessandroReyes {
                    
                     System.out.println("Bienvenido, que empiece el combate.");
                     int golpe;
+                    
                     while(c.getHp() >0 && p.getHp()>0){
+                        System.out.println("");
+                        System.out.println("Que va a hacer: "
+                                + "\n1) atacar"
+                                + "\n2) defender");
+                        int o = leer.nextInt();
                         System.out.println("Turno del jugador");
-                        golpe =  1+random.nextInt(100);
-                        if(golpe > c.getAc()){
-                            if(golpe > p.getCs()){
-                                golpe = p.getDg()*2;
-                                c.setHp(c.getHp()-golpe);
-                                System.out.println("-"+golpe);
-                            }else{
-                                golpe = p.getDg();
-                                c.setHp(c.getHp()-golpe);
-                                System.out.println("-"+golpe);
+                        if (o == 1) {
+                            golpe = 1 + random.nextInt(100);
+                            if (golpe > c.getAc()) {
+                                if (golpe > p.getCs()) {
+                                    golpe = p.getDg() * 2;
+                                    c.setHp(c.getHp() - golpe);
+                                    System.out.println("-" + golpe);
+                                } else {
+                                    golpe = p.getDg();
+                                    c.setHp(c.getHp() - golpe);
+                                    System.out.println("-" + golpe);
+                                }
+
+                            } else {
+                                System.out.println("Su ataque fallo");
                             }
-                                
-                        }else
-                            System.out.println("Su ataque fallo");
+
+                        }else if(o ==2){
+                            p.setAc(p.getAc()+15);
+                            
+                        }
                         
                         System.out.println("");
                         System.out.println("Turno de la maquina.");
-                        p.setAc(p.getAc()+15);
                         golpe =  1+random.nextInt(100);
                         if(golpe > c.getAc()){
                             if(golpe > p.getCs()){
@@ -601,7 +613,8 @@ public class Lab2_AlessandroReyes {
                             }
                         }else
                             System.out.println("La cpu fallo el ataque");
-                        p.setAc(p.getAc()-15);
+                        if(o == 2)
+                            p.setAc(p.getAc()-15);
                     }
                     if(p.getHp()<0){
                         System.out.println("La maquina a ganado, buen intento");
