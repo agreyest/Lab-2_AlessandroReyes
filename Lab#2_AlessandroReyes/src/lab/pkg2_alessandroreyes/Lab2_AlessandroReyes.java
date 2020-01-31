@@ -75,7 +75,7 @@ public class Lab2_AlessandroReyes {
                         raza = leer.nextInt();
                     }
                     System.out.println("Ingrese la altura de su personaje: ");
-                    int altura = leer.nextInt();
+                    int estatura = leer.nextInt();
                     System.out.println("Ingrese el peso de su personaje: ");
                     int peso = leer.nextInt();
                     System.out.println("Ingrese la edad de su personaje: ");
@@ -100,7 +100,188 @@ public class Lab2_AlessandroReyes {
                                 + "\n5) Crateria");
                         nat = leer.nextInt();
                     }
-                    
+                    switch(tipo){
+                        case 1:
+                            if(raza == 1){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(60), 97, 40, 5 + random.nextInt(15)));
+                            }else if(raza == 2){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(60), 93, 65, 15 + random.nextInt(30)));
+                            }else if(raza == 3){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(60), 101, 20, 5 + random.nextInt(10)));
+                            }else if(raza == 4){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(60), 80, 50, 15 + random.nextInt(25)));
+                            }
+                            
+                            System.out.println("Estos son los atributos de su personajes: ");
+                            for (int i = 0; i < personajes.size(); i++) {
+                                if (personajes.get(i).getNombre().equals(nombre)) {
+                                    System.out.println(personajes.get(i));
+                                    System.out.println("tipo= Clerigo");//Cambiar
+                                    if(raza == 1){
+                                        System.out.println("raza= Mediano");//Cambiar
+                                    }else if(raza ==2){
+                                        System.out.println("raza= Enano");//Cambiar
+                                    }else if(raza ==3){
+                                        System.out.println("raza= Elfo");//Cambiar
+                                    }else if(raza ==4){
+                                        System.out.println("raza= Humano");//Cambiar
+                                    }
+                                    if(nat == 1){
+                                        System.out.println("nacionalidad= Norfair");//Cambiar
+                                    }else if(nat ==2){
+                                        System.out.println("nacionalidad= Brinstar");//Cambiar
+                                    }else if(nat ==3){
+                                        System.out.println("nacionalidad= Maridia");//Cambiar
+                                    }else if(nat ==4){
+                                        System.out.println("nacionalidad= Zebes");//Cambiar
+                                    }else if(nat ==5){
+                                        System.out.println("nacionalidad= Crateria");//Cambiar
+                                    }
+                                    
+                                    break;
+                                }
+                            }//fin del for
+                            break;
+                        case 2:
+                            if(raza == 1){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                80 + random.nextInt(100), 97, 40, 5 + random.nextInt(15)));
+                            }else if(raza == 2){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                80 + random.nextInt(100), 93, 65, 15 + random.nextInt(30)));
+                            }else if(raza == 3){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                80 + random.nextInt(100), 101, 20, 5 + random.nextInt(10)));
+                            }else if(raza == 4){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                80 + random.nextInt(100), 80, 50, 15 + random.nextInt(25)));
+                            }
+                            
+                            System.out.println("Estos son los atributos de su personajes: ");
+                            for (int i = 0; i < personajes.size(); i++) {
+                                if (personajes.get(i).getNombre().equals(nombre)) {
+                                    System.out.println(personajes.get(i));
+                                    System.out.println("tipo= Bárbaro");//Cambiar
+                                    if(raza == 1){
+                                        System.out.println("raza= Mediano");//Cambiar
+                                    }else if(raza ==2){
+                                        System.out.println("raza= Enano");//Cambiar
+                                    }else if(raza ==3){
+                                        System.out.println("raza= Elfo");//Cambiar
+                                    }else if(raza ==4){
+                                        System.out.println("raza= Humano");//Cambiar
+                                    }
+                                    if(nat == 1){
+                                        System.out.println("nacionalidad= Norfair");//Cambiar
+                                    }else if(nat ==2){
+                                        System.out.println("nacionalidad= Brinstar");//Cambiar
+                                    }else if(nat ==3){
+                                        System.out.println("nacionalidad= Maridia");//Cambiar
+                                    }else if(nat ==4){
+                                        System.out.println("nacionalidad= Zebes");//Cambiar
+                                    }else if(nat ==5){
+                                        System.out.println("nacionalidad= Crateria");//Cambiar
+                                    }
+                                    
+                                    break;
+                                }
+                            }//fin del for
+                            break;
+                        case 3:
+                            if(raza == 1){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(70), 97, 40, 5 + random.nextInt(15)));
+                            }else if(raza == 2){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(70), 93, 65, 15 + random.nextInt(30)));
+                            }else if(raza == 3){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(70), 101, 20, 5 + random.nextInt(10)));
+                            }else if(raza == 4){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                50 + random.nextInt(70), 80, 50, 15 + random.nextInt(25)));
+                            }
+                            
+                            System.out.println("Estos son los atributos de su personajes: ");
+                            for (int i = 0; i < personajes.size(); i++) {
+                                if (personajes.get(i).getNombre().equals(nombre)) {
+                                    System.out.println(personajes.get(i));
+                                    System.out.println("tipo= Mago");//Cambiar
+                                    if(raza == 1){
+                                        System.out.println("raza= Mediano");//Cambiar
+                                    }else if(raza ==2){
+                                        System.out.println("raza= Enano");//Cambiar
+                                    }else if(raza ==3){
+                                        System.out.println("raza= Elfo");//Cambiar
+                                    }else if(raza ==4){
+                                        System.out.println("raza= Humano");//Cambiar
+                                    }
+                                    if(nat == 1){
+                                        System.out.println("nacionalidad= Norfair");//Cambiar
+                                    }else if(nat ==2){
+                                        System.out.println("nacionalidad= Brinstar");//Cambiar
+                                    }else if(nat ==3){
+                                        System.out.println("nacionalidad= Maridia");//Cambiar
+                                    }else if(nat ==4){
+                                        System.out.println("nacionalidad= Zebes");//Cambiar
+                                    }else if(nat ==5){
+                                        System.out.println("nacionalidad= Crateria");//Cambiar
+                                    }
+                                    
+                                    break;
+                                }
+                            }//fin del for
+                            break;
+                        case 4:
+                            if(raza == 1){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                40 + random.nextInt(75), 97, 40, 5 + random.nextInt(15)));
+                            }else if(raza == 2){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                40 + random.nextInt(75), 93, 65, 15 + random.nextInt(30)));
+                            }else if(raza == 3){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                40 + random.nextInt(75), 101, 20, 5 + random.nextInt(10)));
+                            }else if(raza == 4){
+                                personajes.add(new Personaje(tipo, nombre, raza, estatura, peso, edad, desc, nat,
+                                40 + random.nextInt(75), 80, 50, 15 + random.nextInt(25)));
+                            }
+                            
+                            System.out.println("Estos son los atributos de su personajes: ");
+                            for (int i = 0; i < personajes.size(); i++) {
+                                if (personajes.get(i).getNombre().equals(nombre)) {
+                                    System.out.println(personajes.get(i));
+                                    System.out.println("tipo= Pícaro");//Cambiar
+                                    if(raza == 1){
+                                        System.out.println("raza= Mediano");//Cambiar
+                                    }else if(raza ==2){
+                                        System.out.println("raza= Enano");//Cambiar
+                                    }else if(raza ==3){
+                                        System.out.println("raza= Elfo");//Cambiar
+                                    }else if(raza ==4){
+                                        System.out.println("raza= Humano");//Cambiar
+                                    }
+                                    if(nat == 1){
+                                        System.out.println("nacionalidad= Norfair");//Cambiar
+                                    }else if(nat ==2){
+                                        System.out.println("nacionalidad= Brinstar");//Cambiar
+                                    }else if(nat ==3){
+                                        System.out.println("nacionalidad= Maridia");//Cambiar
+                                    }else if(nat ==4){
+                                        System.out.println("nacionalidad= Zebes");//Cambiar
+                                    }else if(nat ==5){
+                                        System.out.println("nacionalidad= Crateria");//Cambiar
+                                    }
+                                    
+                                    break;
+                                }
+                            }//fin del for
+                            break;
+                    }//fin de switch interno
                     break;
                 case 2://modificar
                     

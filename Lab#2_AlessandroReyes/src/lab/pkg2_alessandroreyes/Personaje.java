@@ -4,7 +4,7 @@ public class Personaje {
     private int tipo;
     private String nombre;
     private int raza;
-    private String estatura;
+    private int estatura;
     private int peso;
     private int edad;
     private String descripcion;
@@ -18,7 +18,7 @@ public class Personaje {
     
     }
 
-    public Personaje(int tipo, int raza, String estatura, int peso, int edad, String descripcion, int nacionalidad) {
+    public Personaje(int tipo, int raza, int estatura, int peso, int edad, String descripcion, int nacionalidad) {
         if(tipo >0 && tipo < 5)
             this.tipo = tipo;
         this.raza = raza;
@@ -28,6 +28,22 @@ public class Personaje {
         this.descripcion = descripcion;
         this.nacionalidad = nacionalidad;
     }
+
+    public Personaje(int tipo, String nombre, int raza, int estatura, int peso, int edad, String descripcion, int nacionalidad, int hp, int cs, int ac, int dg) {
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.raza = raza;
+        this.estatura = estatura;
+        this.peso = peso;
+        this.edad = edad;
+        this.descripcion = descripcion;
+        this.nacionalidad = nacionalidad;
+        this.hp = hp;
+        this.cs = cs;
+        this.ac = ac;
+        this.dg = dg;
+    }
+    
 
     public int getTipo() {
         return tipo;
@@ -55,11 +71,11 @@ public class Personaje {
         this.raza = raza;
     }
 
-    public String getEstatura() {
+    public int getEstatura() {
         return estatura;
     }
 
-    public void setEstatura(String estatura) {
+    public void setEstatura(int estatura) {
         this.estatura = estatura;
     }
 
@@ -129,8 +145,10 @@ public class Personaje {
 
     @Override
     public String toString() {
-        return "nombre= " + nombre + "\n hp= " + hp + "\n cs= " + cs + "\n ac= " + ac + "\n dg= " + dg;
+        return "nombre= " + nombre + "\n estatura= " + estatura + "\n peso= " + peso + "\n edad= " + edad + 
+                "\n descripcion=" + descripcion + "\n hp= " + hp + "\n cs= " + cs + "\n ac= " + ac + "\n dg= " + dg;
     }
+
     
     
     
