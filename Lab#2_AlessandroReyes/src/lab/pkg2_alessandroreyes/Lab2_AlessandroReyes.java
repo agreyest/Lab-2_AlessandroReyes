@@ -31,7 +31,8 @@ public class Lab2_AlessandroReyes {
                     + "\n3) Ver atributos de un personaje"
                     + "\n4) Eliminar personajes"
                     + "\n5) Combate"
-                    + "\n6) Salir");
+                    + "\n6) Salir"
+                    + "\n7) Listar personajes");
             int op = leer.nextInt();
             switch (op) {
                 case 1://crear
@@ -300,7 +301,92 @@ public class Lab2_AlessandroReyes {
                     }//fin de switch interno
                     break;
                 case 2://modificar
-
+                    System.out.println("Personaje del juego: ");
+                    for (int i = 0; i < personajes.size(); i++) {
+                        System.out.println(i + ") "+personajes.get(i).getNombre());
+                    }
+                    System.out.println("Ingrese el numero del personaje que quiere modificar: ");
+                    int mod= leer.nextInt();
+                    System.out.println("Que desea modificar del personaje "
+                            + "\n1) nombre"
+                            + "\n2) estatura"
+                            + "\n3) peso"
+                            + "\n4) años"
+                            + "\n5) descripcion"
+                            + "\n6) nacionalidad");
+                    int opc = leer.nextInt();
+                    switch (opc) {
+                        case 1://nombre
+                            System.out.print("Ingrese el nombre de su personaje: ");
+                            leer.nextLine();
+                            nombre = leer.nextLine();
+                            ver = false;
+                            for (int i = 0; i < personajes.size(); i++) {
+                                if (personajes.get(i).getNombre().equals(nombre)) {
+                                    ver = true;
+                                }
+                            }
+                            while (ver) {
+                                System.out.println("El nombre que ingreso ya existe"
+                                        + "\nIngrese el nombre de su personaje: ");
+                                nombre = leer.nextLine();
+                                for (int i = 0; i < personajes.size(); i++) {
+                                    if (personajes.get(i).getNombre().equals(nombre)) {
+                                        ver = true;
+                                        break;
+                                    } else {
+                                        ver = false;
+                                    }
+                                }
+                            }
+                            personajes.get(mod).setNombre(nombre);
+                            break;
+                        case 2://estatura
+                            System.out.println("Ingrese la altura de su personaje: ");
+                            estatura = leer.nextInt();
+                            personajes.get(mod).setEstatura(estatura);
+                            System.out.println("Modificacion hecha con exito.");
+                            break;
+                        case 3://peso
+                            System.out.println("Ingrese el peso de su personaje: ");
+                            peso = leer.nextInt();
+                            personajes.get(mod).setPeso(peso);
+                            System.out.println("Modificacion hecha con exito.");
+                            break;
+                        case 4://años
+                            System.out.println("Ingrese la edad de su personaje: ");
+                            edad = leer.nextInt();
+                            personajes.get(mod).setEdad(edad);
+                            System.out.println("Modificacion hecha con exito.");
+                            break;
+                        case 5://descripcion
+                            System.out.println("Ingrese una leve descripcion de su personaje ");
+                            leer.nextLine();
+                            desc = leer.nextLine();
+                            personajes.get(mod).setDescripcion(desc);
+                            System.out.println("Modificacion hecha con exito.");
+                            break;
+                        case 6://nacionalidad
+                            System.out.println("Que nacionalidad es su jugador (presione un numero): "
+                                    + "\n1) Norfair"
+                                    + "\n2) Brinstar"
+                                    + "\n3) Maridia"
+                                    + "\n4) Zebes"
+                                    + "\n5) Crateria");
+                            nat = leer.nextInt();
+                            while (nat < 1 || nat > 5) {
+                                System.out.println("Lo ingresado esta malo, vuelva a intentar"
+                                        + "\nQue nacionalidad es su jugador (presione un numero): "
+                                        + "\n1) Norfair"
+                                        + "\n2) Brinstar"
+                                        + "\n3) Maridia"
+                                        + "\n4) Zebes"
+                                        + "\n5) Crateria");
+                                nat = leer.nextInt();
+                            }
+                            personajes.get(mod).setNacionalidad(nat);
+                            break;
+                    }
                     break;
                 case 3://vér
                     System.out.println("Ingrese el nombre del personaje que desea ver los atributos: ");
@@ -446,7 +532,8 @@ public class Lab2_AlessandroReyes {
                     }//fin de switch interno
                     break;
                 case 4://elimnar
-                    System.out.println("Ingrese el nombre del personaje que desea ver los atributos: ");
+                    System.out.println("Ingrese el nombre del personaje que desea ver Eliminar: ");
+                    leer.nextLine();
                     String nom = leer.nextLine();
                     for (int i = 0; i < personajes.size(); i++) {
                         if (personajes.get(i).getNombre().equals(nom)) {
@@ -524,6 +611,11 @@ public class Lab2_AlessandroReyes {
                     break;
                 case 6://salir
                     resp = 'n';
+                    break;
+                case 7: //listar
+                    for (int i = 0; i < personajes.size(); i++) {
+                        System.out.println(i + ") "+personajes.get(i).getNombre());
+                    }
                     break;
                 default:
 
